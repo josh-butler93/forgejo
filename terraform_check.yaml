@@ -1,0 +1,15 @@
+---
+- name: Verify Terraform Installation
+  hosts: terraform
+  gather_facts: false
+
+  tasks:
+    - name: Check Terraform version
+      ansible.builtin.command:
+        cmd: terraform version
+      register: terraform_version
+      changed_when: false
+
+    - name: Display Terraform version
+      ansible.builtin.debug:
+        var: terraform_version.stdout_lines
