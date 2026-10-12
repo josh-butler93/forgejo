@@ -1,0 +1,17 @@
+---
+- name: Gather Homelab System Information
+  hosts: semaphore_test
+  gather_facts: true
+  become: false
+
+  tasks:
+    - name: Display system information
+      ansible.builtin.debug:
+        msg:
+          - "Hostname: {{ ansible_facts['hostname'] }}"
+          - "OS: {{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
+          - "Kernel: {{ ansible_facts['kernel'] }}"
+          - "Architecture: {{ ansible_facts['architecture'] }}"
+          - "CPU Cores: {{ ansible_facts['processor_vcpus'] }}"
+          - "Total RAM: {{ ansible_facts['memtotal_mb'] }} MB"
+          - "Uptime: {{ (ansible_facts['uptime_seconds'] | default(0) / 3600) | round(1) }} hours"
