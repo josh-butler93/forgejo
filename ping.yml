@@ -1,0 +1,8 @@
+---
+- name: Test Semaphore SSH Connectivity
+  hosts: semaphore_test
+  gather_facts: false
+
+  tasks:
+    - name: Ping Kubernetes controller
+      ansible.builtin.ping:
