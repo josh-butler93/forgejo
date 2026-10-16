@@ -1,0 +1,10 @@
+---
+- name: New Machine Ping Test
+  hosts: test_machines
+  become: true
+  gather_facts: true
+
+  tasks:
+    
+    - name: Ping Machine Test
+      ansible.builtin.ping:
