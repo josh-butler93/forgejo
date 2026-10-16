@@ -1,7 +1,7 @@
 ---
 - name: New Machine Ping Test
   hosts: test_machines
-  become: true
+  become: false 
   gather_facts: true
 
   tasks:
