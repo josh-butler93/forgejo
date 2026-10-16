@@ -1,0 +1,14 @@
+---
+- name: Gather Proxmox Server Information
+  hosts: semaphore_test
+  become: false
+  gather_facts: true
+
+  tasks:
+    - name: Display hostname
+      ansible.builtin.debug:
+        var: ansible_hostname
+
+    - name: Display operating system
+      ansible.builtin.debug:
+        var: ansible_distribution
